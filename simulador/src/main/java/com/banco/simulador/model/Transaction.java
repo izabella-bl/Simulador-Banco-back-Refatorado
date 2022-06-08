@@ -1,6 +1,8 @@
 package com.banco.simulador.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Getter
 @Setter
@@ -25,8 +28,8 @@ public class Transaction {
 	private double value;
 	private char type;
 	private String description;
-	private LocalDateTime createdAt;
-	private LocalDateTime updatedAt;
+	private LocalDate createdAt;
+	private LocalDateTime updated_At;
 	private byte status;
 
 
@@ -36,10 +39,13 @@ public class Transaction {
 		this.value = transferValue;
 		this.type = type;
 		this.status = status;
-		this.createdAt = LocalDateTime.now();
-		this.updatedAt = LocalDateTime.now();
+		this.createdAt = LocalDate.now();
+		this.updated_At = LocalDateTime.now();
 		
 	}
 
+	public Transaction (){
+
+	}
 
 }

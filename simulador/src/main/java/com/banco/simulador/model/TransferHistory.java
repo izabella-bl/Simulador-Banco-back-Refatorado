@@ -24,8 +24,8 @@ public class TransferHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private LocalDateTime created_At;
+    private LocalDateTime updated_At;
     private String description;
     private BigDecimal value;
     private BigDecimal balance;

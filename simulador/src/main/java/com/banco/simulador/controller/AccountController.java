@@ -5,9 +5,9 @@ import com.banco.simulador.model.Transaction;
 import com.banco.simulador.services.AccountService;
 import com.banco.simulador.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -24,5 +24,19 @@ public class AccountController {
         return "Succesfull Transfer!";
     }
 
+    @PutMapping("/transfer/update")
+    public String updateTransfer(@RequestBody Transaction accountTransfer) throws Exception{
+        try {
+            accountService.updateTransaction(accountTransfer);
+            return "Succesfull Transfer!";
+        }catch (Exception e) {
+            return "Can't transfer";
+        }
+    }
+
+    @GetMapping("/transfer")
+    public List<Transaction> getTransfer(@RequestParam Long userId){
+        return accountService.getUserTransaction(userId);
+    }
 
 }

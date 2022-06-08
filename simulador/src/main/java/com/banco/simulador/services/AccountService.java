@@ -1,6 +1,7 @@
 package com.banco.simulador.services;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -66,9 +67,12 @@ public class AccountService {
         return  null;
     }
     
-    public void executeTransaction() {
-    	
-    }
+   public void updateTransaction(Transaction transaction) throws Exception{
+        transactionService.updateTransation(transaction);
+   }
 
+   public List<Transaction> getUserTransaction(Long userId){
+        return transactionService.getUserTransaction(userId);
+   }
 
 }

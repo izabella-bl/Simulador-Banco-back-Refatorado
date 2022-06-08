@@ -10,6 +10,6 @@ public interface HistoryRepository extends PagingAndSortingRepository<TransferHi
 
     List<TransferHistory> findByUsers_Id(Long userId);
 
-    @Query("SELECT h FROM TransferHistory h  WHERE MONTH(h.createdAt) = ?1 AND h.users.id = ?2")
+    @Query("SELECT h FROM TransferHistory h  WHERE MONTH(h.created_At) = ?1 AND h.users.id = ?2")
     List<TransferHistory> findByMonth(Integer month, Long userId);
 }

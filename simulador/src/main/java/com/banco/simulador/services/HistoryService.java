@@ -22,9 +22,8 @@ public class HistoryService {
 		TransferHistory destinyHistory = new TransferHistory();
 		try {
 
-			// TODO traduzir string?
 			LocalDateTime dataAtual = LocalDateTime.now();
-			originHistory.setCreatedAt(dataAtual);
+			originHistory.setCreated_At(dataAtual);
 			originHistory.setDescription(
 					"Tranferencia para:" + destinyUser.getFirstName() + " " + destinyUser.getLastName());
 			originHistory.setBalance(originUser.getAccount().getBalance());
@@ -32,7 +31,7 @@ public class HistoryService {
 			originHistory.setValue(transferValue);
 			originHistory.setType(1);
 
-			destinyHistory.setCreatedAt(dataAtual);
+			destinyHistory.setCreated_At(dataAtual);
 			destinyHistory.setDescription("Recebido de:" + originUser.getFirstName() + " " + originUser.getLastName());
 			destinyHistory.setBalance(destinyUser.getAccount().getBalance());
 			destinyHistory.setUsers(destinyUser);

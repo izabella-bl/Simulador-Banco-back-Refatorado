@@ -1,6 +1,8 @@
 package com.banco.simulador.repository;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
@@ -10,6 +12,9 @@ import com.banco.simulador.model.Transaction;
 
 public interface TransactionRepository extends CrudRepository<Transaction,Long>{
 
-	@Query( nativeQuery=true,value ="SELECT * FROM Transactions t  WHERE date_part('day', TIMESTAMP t.created_at) = ?1")
-	List<Transaction> findTransactionsByDateAndUser(LocalDateTime date);
+	List<Transaction> findByCreatedAtAndStatus(LocalDate date, byte status);
+
+	List<Transaction> findByOriginId(Long userId);
+
+
 }
